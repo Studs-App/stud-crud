@@ -15,11 +15,13 @@ func initRoutes(app *fiber.App) {
 	app.Get("/get/profile", services.GetProfileById)
 	app.Get("/get/profile/all", services.GetAllProfiles)
 	app.Post("/create/profile", services.CreateProfile)
+	app.Post("/create/studySession", services.CreateStudySession)
+	app.Get("/get/studySession/:id/all", services.GetAllStudySessionsByProfileID)
+	app.Get("/get/studySession/all", services.GetAllStudySessions)
 }
 
 func initializeDB() {
 	var err error
-	// base.DB, err = gorm.Open(base.DBUrl(base.BuildDBConfig()))
 	base.DB, err = gorm.Open("postgres", base.DBUrl(base.BuildDBConfig()))
 	if err != nil {
 		panic(err)
@@ -27,6 +29,7 @@ func initializeDB() {
 	log.Println("DB connection successful!")
 
 	base.DB.AutoMigrate(&models.Profile{})
+	base.DB.AutoMigrate(&models.StudySession{})
 	log.Println("Database Migrated")
 
 }

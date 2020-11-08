@@ -7,12 +7,12 @@ import (
 )
 
 func GetProfileById(c *fiber.Ctx) error {
-	profile := repositories.GetProfileById(1)
+	profile := repositories.ReadProfileById(1)
 	return c.JSON(profile)
 }
 
 func GetAllProfiles(c *fiber.Ctx) error {
-	profiles := repositories.GetAllProfiles()
+	profiles := repositories.ReadAllProfiles()
 	return c.JSON(profiles)
 }
 

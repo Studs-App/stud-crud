@@ -8,7 +8,7 @@ import (
 	"github.com/stud-crud/models"
 )
 
-func GetAllProfiles() [] models.Profile{
+func ReadAllProfiles() []models.Profile {
 	log.Println("GetAllProfiles()")
 	db := base.DB
 	var profiles []models.Profile
@@ -16,7 +16,7 @@ func GetAllProfiles() [] models.Profile{
 	return profiles
 }
 
-func GetProfileById(id int) models.Profile {
+func ReadProfileById(id int) models.Profile {
 	log.Println("GetProfileById()")
 	db := base.DB
 	var profile models.Profile
