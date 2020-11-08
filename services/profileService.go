@@ -15,11 +15,11 @@ func GetProfileById(c *fiber.Ctx) error {
 	return c.JSON(profile)
 }
 
-func formatBudsForProfiles(buds []models.Buds) []string{
+func formatBudsForProfiles(buds []models.Buds) []string {
 	var budSlice []string
 	for _, bud := range buds {
 		budFromSession := bud.Buds
-		for _, b := range budFromSession{
+		for _, b := range budFromSession {
 			budSlice = append(budSlice, b)
 		}
 	}
