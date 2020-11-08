@@ -11,20 +11,22 @@ import (
 func CreateStudySession(c *fiber.Ctx) error {
 	var studySession models.StudySession
 	params := new(struct {
-		Title        string   `json:"title"`
-		Subject      string   `json:"subject"`
-		Status       string   `json:"status"`
-		Lattitude    float64  `json:"lattitude"`
-		Longitude    float64  `json:"longitude"`
-		Location     string   `json:"location"`
-		Buds         []string `json:"buds"`
-		Duration     string   `json:"duration"`
-		ScheduledDate string   `json:"scheduled_date "`
-		IsPrivate    bool     `json:"is_private"`
-		ProfileId    int      `json:"profile_id"`
+		Title         string   `json:"title"`
+		Description   string   `json:"description"`
+		Subject       string   `json:"subject"`
+		Status        string   `json:"status"`
+		Lattitude     float64  `json:"lattitude"`
+		Longitude     float64  `json:"longitude"`
+		Location      string   `json:"location"`
+		Buds          []string `json:"buds"`
+		Duration      string   `json:"duration"`
+		ScheduledDate string   `json:"scheduledDate"`
+		IsPrivate     bool     `json:"is_private"`
+		ProfileId     int      `json:"profile_id"`
 	})
 	c.BodyParser(&params)
 	studySession.Title = params.Title
+	studySession.Description = params.Description
 	studySession.Subject = params.Subject
 	studySession.Status = params.Status
 	studySession.Lattitude = params.Lattitude
