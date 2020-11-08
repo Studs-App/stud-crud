@@ -9,7 +9,22 @@ import (
 func GetProfileById(c *fiber.Ctx) error {
 	profileId := c.Params("id")
 	profile := repositories.ReadProfileById(profileId)
+	buds := repositories.ReadStudyBudsByProfileId(profileId)
+	profile.Buds = formatBudsForProfiles(buds)
+	go repositories.UpdateProfileBuds(profileId, profile.Buds)
 	return c.JSON(profile)
+}
+
+func formatBudsForProfiles(buds []models.Buds) []string{
+	var budSlice []string
+	for _, bud := range buds {
+		budFromSession := bud.Buds
+		for _, b := range budFromSession{
+			budSlice = append(budSlice, b)
+		}
+	}
+	return budSlice
+
 }
 
 func GetAllProfiles(c *fiber.Ctx) error {

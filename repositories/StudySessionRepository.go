@@ -28,3 +28,11 @@ func ReadAllStudySessions() []models.StudySession {
 	db.Find(&allStudySessions)
 	return allStudySessions
 }
+
+func ReadStudyBudsByProfileId(profileId string) []models.Buds {
+	log.Println("ReadStudyBudsByProfileId")
+	db := base.DB
+	var budsSlice []models.Buds
+	db.Raw("SELECT buds FROM study_sessions WHERE profile_id = ?", profileId).Scan(&budsSlice)
+	return budsSlice
+}

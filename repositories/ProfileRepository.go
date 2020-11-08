@@ -1,9 +1,9 @@
 package repositories
 
 import (
-	"fmt"
 	"log"
 
+	"github.com/lib/pq"
 	"github.com/stud-crud/base"
 	"github.com/stud-crud/models"
 )
@@ -27,7 +27,13 @@ func ReadProfileById(id string) models.Profile {
 func InsertProfile(profile models.Profile) models.Profile {
 	log.Println("InsertProfile()")
 	db := base.DB
-	fmt.Printf("profiles: %v", profile)
 	db.Create(&profile)
 	return profile
+}
+
+func UpdateProfileBuds(profileId string, buds pq.StringArray) {
+	log.Println("UpdateProfileBuds()")
+	db := base.DB
+	var profile models.Profile
+	db.Model(&profile).Where("id = ?", profileId).Update("buds", buds)
 }
