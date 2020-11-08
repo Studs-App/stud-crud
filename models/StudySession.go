@@ -15,7 +15,7 @@ type StudySession struct {
 	Location     string         `json:"location"`
 	Buds         pq.StringArray `gorm:"type:varchar(64)[]" json:"buds"`
 	Duration     string         `json:"duration"`
-	SheculedDate string         `json:"sheculed_date "`
+	ScheduledDate string         `json:"scheduled_date "`
 	IsPrivate    bool           `json:"is_private"`
 	ProfileId    int            `json:"profile_id"`
 }
