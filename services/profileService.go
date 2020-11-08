@@ -22,6 +22,7 @@ func CreateProfile(c *fiber.Ctx) error {
 	params := new(struct {
 		FirstName       string   `json:"first_name"`
 		LastName        string   `json:"last_name"`
+		PictureUrl      string   `json:"picture_url"`
 		AuthenticatorId string   `json:"authenticator_id"`
 		Major           string   `json:"major"`
 		School          string   `json:"school"`
@@ -31,6 +32,7 @@ func CreateProfile(c *fiber.Ctx) error {
 	var profile models.Profile
 	profile.FirstName = params.FirstName
 	profile.LastName = params.LastName
+	profile.PictureUrl = params.PictureUrl
 	profile.AuthenticatorId = params.AuthenticatorId
 	profile.Major = params.Major
 	profile.School = params.School

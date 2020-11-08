@@ -19,7 +19,7 @@ func CreateStudySession(c *fiber.Ctx) error {
 		Location     string   `json:"location"`
 		Buds         []string `json:"buds"`
 		Duration     string   `json:"duration"`
-		SheculedDate string   `json:"sheculed_date "`
+		ScheduledDate string   `json:"scheduled_date "`
 		IsPrivate    bool     `json:"is_private"`
 		ProfileId    int      `json:"profile_id"`
 	})
@@ -32,7 +32,7 @@ func CreateStudySession(c *fiber.Ctx) error {
 	studySession.Location = params.Location
 	studySession.Buds = params.Buds
 	studySession.Duration = params.Duration
-	studySession.SheculedDate = params.SheculedDate
+	studySession.ScheduledDate = params.ScheduledDate
 	studySession.IsPrivate = params.IsPrivate
 	studySession.ProfileId = params.ProfileId
 
