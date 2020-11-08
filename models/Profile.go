@@ -7,11 +7,12 @@ import (
 
 type Profile struct {
 	gorm.Model
-	FirstName       string         `json:"first_name"`
-	LastName        string         `json:"last_name"`
-	PictureUrl      string         `json:"picture_url"`
+	FirstName       string         `json:"firstName"`
+	LastName        string         `json:"lastName"`
+	PictureUrl      string         `json:"pictureUrl"`
 	AuthenticatorId string         `json:"authenticator_id"`
 	Major           string         `json:"major"`
 	School          string         `json:"school"`
 	Studs           pq.StringArray `gorm:"type:varchar(64)[]" json:"studs"`
+	Buds            pq.StringArray `gorm:"type:varchar(64)[]" json:"buds"`
 }
