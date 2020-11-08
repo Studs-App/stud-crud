@@ -11,7 +11,7 @@ func GetProfileById(c *fiber.Ctx) error {
 	profile := repositories.ReadProfileById(profileId)
 	buds := repositories.ReadStudyBudsByProfileId(profileId)
 	profile.Buds = formatBudsForProfiles(buds)
-	repositories.UpdateProfileBuds(profileId, profile.Buds)
+	go repositories.UpdateProfileBuds(profileId, profile.Buds)
 	return c.JSON(profile)
 }
 
