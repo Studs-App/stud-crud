@@ -9,18 +9,18 @@ import (
 )
 
 func ReadAllProfiles() []models.Profile {
-	log.Println("GetAllProfiles()")
+	log.Println("ReadAllProfiles()")
 	db := base.DB
 	var profiles []models.Profile
 	db.Find(&profiles)
 	return profiles
 }
 
-func ReadProfileById(id int) models.Profile {
-	log.Println("GetProfileById()")
+func ReadProfileById(id string) models.Profile {
+	log.Println("ReadProfileById()")
 	db := base.DB
 	var profile models.Profile
-	db.Find(&profile)
+	db.Find(&profile, id)
 	return profile
 }
 

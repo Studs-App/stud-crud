@@ -12,7 +12,7 @@ import (
 )
 
 func initRoutes(app *fiber.App) {
-	app.Get("/get/profile", services.GetProfileById)
+	app.Get("/get/profile/:id", services.GetProfileById)
 	app.Get("/get/profile/all", services.GetAllProfiles)
 	app.Post("/create/profile", services.CreateProfile)
 	app.Post("/create/studySession", services.CreateStudySession)
